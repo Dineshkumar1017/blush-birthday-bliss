@@ -1,8 +1,14 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const getNitroPreset = () => {
+  if (process.env.VERCEL) return "vercel";
+  if (process.env.NETLIFY) return "netlify";
+  return "node-server";
+};
+
 export default defineConfig({
   nitro: {
-    preset: "node-server",
+    preset: getNitroPreset(),
   },
   vite: {
     server: {
