@@ -3,8 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 
 const INITIAL_SONGS = [
   { title: "Your Birthday Song 💕", src: "/birthday-song.mp3" },
-  { title: "Birthday Vibes 🎂", src: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946bc7a09a.mp3?filename=happy-birthday-121490.mp3" },
-  { title: "Soft & Dreamy 🌸", src: "https://cdn.pixabay.com/download/audio/2023/06/19/audio_50f4ee2e4d.mp3?filename=cute-and-happy-149203.mp3" },
+  { title: "Birthday Vibes 🎂", src: "/3.mpeg" },
 ];
 
 export function MusicToggle() {
@@ -71,11 +70,10 @@ export function MusicToggle() {
                 <li key={i}>
                   <button
                     onClick={() => pick(i)}
-                    className={`w-full rounded-xl px-3.5 py-2.5 text-left text-sm font-medium transition-all ${
-                      i === index && playing
+                    className={`w-full rounded-xl px-3.5 py-2.5 text-left text-sm font-medium transition-all ${i === index && playing
                         ? "bg-primary text-primary-foreground shadow-md"
                         : "hover:bg-rose/20 text-foreground"
-                    }`}
+                      }`}
                   >
                     {i === index && playing ? "♪ " : ""}{s.title}
                   </button>
@@ -117,9 +115,8 @@ export function MusicToggle() {
           whileTap={{ scale: 0.9 }}
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pause music" : "Play music"}
-          className={`relative flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-gradient-to-tr from-primary via-rose to-primary text-3xl md:text-4xl text-primary-foreground shadow-[0_10px_30px_-5px_oklch(0.72_0.16_15/0.6)] cursor-pointer transition-all ${
-            playing ? "animate-pulse" : ""
-          }`}
+          className={`relative flex h-16 w-16 md:h-20 md:w-20 items-center justify-center rounded-full bg-gradient-to-tr from-primary via-rose to-primary text-3xl md:text-4xl text-primary-foreground shadow-[0_10px_30px_-5px_oklch(0.72_0.16_15/0.6)] cursor-pointer transition-all ${playing ? "animate-pulse" : ""
+            }`}
         >
           {playing ? (
             <span className="text-2xl md:text-3xl">❚❚</span>
